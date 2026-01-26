@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones Integrales Consultores - Asesoría Especializada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5282;
+            --secondary: #dd6b20;
+            --accent: #0bc5ea;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray: #718096;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 200px;
+            height: 60px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 22px;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .language-selector {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c05621;
+            transform: translateY(-2px);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(44, 82, 130, 0.9), rgba(44, 82, 130, 0.8)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        /* BUSINESS VERTICALS */
+        .vertical-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .vertical-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .vertical-btn:hover, .vertical-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .vertical-content {
+            display: none;
+        }
+        
+        .vertical-content.active {
+            display: block;
+        }
+        
+        /* PROCURACIÓN DE FONDOS - Special Layout */
+        .funds-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .fund-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .fund-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 25px;
+        }
+        
+        .fund-header h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        
+        .fund-header .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .fund-body {
+            padding: 30px;
+        }
+        
+        .fund-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .fund-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .fund-features li i {
+            color: var(--accent);
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        /* DISTRIBUCIÓN - Single Card Layout */
+        .distribution-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .distribution-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .distribution-header h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .distribution-header .icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .distribution-body {
+            padding: 40px;
+        }
+        
+        .distribution-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-item .icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        /* FRANQUICIAS - Two Column Layout */
+        .franchise-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .franchise-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .franchise-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 25px;
+        }
+        
+        .franchise-header h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .franchise-header .icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .franchise-body {
+            padding: 30px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        /* SERVICIOS INMOBILIARIOS - Two Column Layout */
+        .realestate-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 25px;
+        }
+        
+        .service-header h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .service-header .icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .service-body {
+            padding: 30px;
+        }
+        
+        .calculator {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .calculator h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .calculator input {
+            width: 100%;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .calculator .result {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        /* CONTACT FORM */
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .btn-secondary {
+            padding: 10px 25px;
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .logo-img {
+            width: 180px;
+            height: 50px;
+        }
+        
+        .footer-contact h3, .footer-links h3, .footer-blog h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .blog-posts .post {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .blog-posts .post h4 {
+            margin-bottom: 5px;
+        }
+        
+        .blog-posts .post a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .blog-posts .post a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .certification {
+            background-color: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ddd;
+            font-size: 14px;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .funds-container, .franchise-container, .realestate-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .distribution-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .vertical-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .vertical-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .distribution-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .distribution-body, .fund-body, .franchise-body, .service-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <!-- LOGO SOLUCIONES INTEGRALES CONSULTORES AQUÍ -->
+                    LOGO S.I. CONSULTORES
+                </div>
+                <div class="logo-text">
+                    <h1>SOLUCIONES INTEGRALES CONSULTORES</h1>
+                    <p>Asesoría especializada para el crecimiento empresarial</p>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active" data-vertical="fondos">Procuración de Fondos</a></li>
+                    <li><a href="#" data-vertical="distribucion">Distribución</a></li>
+                    <li><a href="#" data-vertical="franquicias">Franquicias y Licenciamientos</a></li>
+                    <li><a href="#" data-vertical="inmobiliarios">Servicios Inmobiliarios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <select class="language-selector">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
+                <a href="#contacto" class="btn-primary">Cotizar Servicio</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h2>Impulsamos el Crecimiento Empresarial</h2>
+            <p>Especialistas en procuración de fondos, distribución, franquicias y servicios inmobiliarios para potenciar tu negocio.</p>
+            <a href="#verticales" class="btn-primary">Conoce Nuestros Servicios</a>
+        </div>
+    </section>
+
+    <!-- BUSINESS VERTICALS -->
+    <section id="verticales">
+        <div class="container">
+            <div class="section-title">
+                <h2>Verticales de Negocio</h2>
+                <p>Descubre nuestras áreas de especialización diseñadas para apoyar el desarrollo y expansión de tu empresa.</p>
+            </div>
+            
+            <div class="vertical-nav">
+                <button class="vertical-btn active" data-target="fondos">Procuración de Fondos</button>
+                <button class="vertical-btn" data-target="distribucion">Distribución</button>
+                <button class="vertical-btn" data-target="franquicias">Franquicias y Licenciamientos</button>
+                <button class="vertical-btn" data-target="inmobiliarios">Servicios Inmobiliarios</button>
+            </div>
+            
+            <!-- PROCURACIÓN DE FONDOS -->
+            <div id="fondos" class="vertical-content active">
+                <div class="funds-container">
+                    <!-- FONDOS PÚBLICOS -->
+                    <div class="fund-card">
+                        <div class="fund-header">
+                            <div class="icon"><i class="fas fa-landmark"></i></div>
+                            <h3>FONDOS PÚBLICOS</h3>
+                            <p>Acceso a programas gubernamentales de financiamiento</p>
+                        </div>
+                        <div class="fund-body">
+                            <p>Te ayudamos a identificar, preparar y gestionar solicitudes para fondos públicos federales, estatales y municipales.</p>
+                            <ul class="fund-features">
+                                <li><i class="fas fa-check"></i> Análisis de elegibilidad</li>
+                                <li><i class="fas fa-check"></i> Elaboración de proyectos</li>
+                                <li><i class="fas fa-check"></i> Seguimiento de convocatorias</li>
+                                <li><i class="fas fa-check"></i> Gestión de trámites</li>
+                                <li><i class="fas fa-check"></i> Capacitación para beneficiarios</li>
+                                <li><i class="fas fa-check"></i> Reportes de cumplimiento</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Convocatorias</a>
+                                <a href="#" class="btn-primary">Solicitar Asesoría</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FONDOS PRIVADOS -->
+                    <div class="fund-card">
+                        <div class="fund-header">
+                            <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
+                            <h3>FONDOS PRIVADOS</h3>
+                            <p>Vinculación con inversionistas y fondos de capital</p>
+                        </div>
+                        <div class="fund-body">
+                            <p>Conectamos tu empresa con fuentes de financiamiento privado: ángeles inversionistas, fondos de capital y bancos.</p>
+                            <ul class="fund-features">
+                                <li><i class="fas fa-check"></i> Preparación de pitch deck</li>
+                                <li><i class="fas fa-check"></i> Valoración de empresa</li>
+                                <li><i class="fas fa-check"></i> Due diligence financiero</li>
+                                <li><i class="fas fa-check"></i> Negociación de términos</li>
+                                <li><i class="fas fa-check"></i> Vinculación con inversionistas</li>
+                                <li><i class="fas fa-check"></i> Seguimiento post-inversión</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Evaluar Elegibilidad</a>
+                                <a href="#" class="btn-primary">Agendar Reunión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DISTRIBUCIÓN -->
+            <div id="distribucion" class="vertical-content">
+                <div class="distribution-card">
+                    <div class="distribution-header">
+                        <div class="icon"><i class="fas fa-truck-loading"></i></div>
+                        <h3>PROGRAMA DE AFILIADOS</h3>
+                        <p>Expande tu alcance comercial con nuestra red de distribución</p>
+                    </div>
+                    <div class="distribution-body">
+                        <p>Nuestro programa de afiliados te permite ampliar tu cobertura comercial sin grandes inversiones en infraestructura. Conectamos tu producto con una red de distribuidores capacitados y motivados.</p>
+                        
+                        <div class="distribution-features">
+                            <div class="feature-item">
+                                <div class="icon"><i class="fas fa-chart-line"></i></div>
+                                <h4>Mayor Cobertura</h4>
+                                <p>Llega a mercados que antes no podías alcanzar</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+                                <h4>Comisiones Atractivas</h4>
+                                <p>Sistema de compensación competitivo y transparente</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                                <h4>Capacitación Continua</h4>
+                                <p>Formación constante para tu red de afiliados</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="icon"><i class="fas fa-tools"></i></div>
+                                <h4>Herramientas Digitales</h4>
+                                <p>Dashboard de seguimiento y gestión de pedidos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator">
+                            <h4>Calculadora de Comisiones</h4>
+                            <input type="number" id="ventasMensuales" placeholder="Ventas mensuales estimadas ($)" min="0">
+                            <button class="btn-primary" onclick="calcularComisiones()">Calcular Comisiones</button>
+                            <div class="result" id="resultadoComisiones"></div>
+                        </div>
+                        
+                        <div class="card-actions" style="text-align: center; margin-top: 30px;">
+                            <a href="#" class="btn-secondary">Ver Dashboard Demo</a>
+                            <a href="#" class="btn-primary">Registrarse al Programa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FRANQUICIAS Y LICENCIAMIENTOS -->
+            <div id="franquicias" class="vertical-content">
+                <div class="franchise-container">
+                    <!-- MICRO FRANQUICIAS -->
+                    <div class="franchise-card">
+                        <div class="franchise-header">
+                            <div class="icon"><i class="fas fa-store-alt"></i></div>
+                            <h3>MICRO FRANQUICIAS</h3>
+                            <p>Modelos de negocio escalables con baja inversión</p>
+                        </div>
+                        <div class="franchise-body">
+                            <p>Desarrollamos y operamos modelos de microfranquicias que permiten el emprendimiento con inversiones accesibles y alto potencial de retorno.</p>
+                            
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Microfranquicia</th>
+                                        <th>Inversión Inicial</th>
+                                        <th>Tiempo Recuperación</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Food Truck Saludable</td>
+                                        <td>$150,000 - $300,000</td>
+                                        <td>12-18 meses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Centro de Recargas</td>
+                                        <td>$80,000 - $150,000</td>
+                                        <td>8-12 meses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lavandería Express</td>
+                                        <td>$200,000 - $350,000</td>
+                                        <td>14-20 meses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tienda de Conveniencia</td>
+                                        <td>$120,000 - $250,000</td>
+                                        <td>10-16 meses</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Portafolio Completo</a>
+                                <a href="#" class="btn-primary">Solicitar Pre-evaluación</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- LICENCIAMIENTOS PEQUEÑOS NEGOCIOS -->
+                    <div class="franchise-card">
+                        <div class="franchise-header">
+                            <div class="icon"><i class="fas fa-file-signature"></i></div>
+                            <h3>LICENCIAMIENTOS PEQUEÑOS NEGOCIOS</h3>
+                            <p>Alternativa flexible a la franquicia tradicional</p>
+                        </div>
+                        <div class="franchise-body">
+                            <p>Ofrecemos licencias de uso de marca y know-how para pequeños negocios, con menor inversión y mayor flexibilidad que una franquicia tradicional.</p>
+                            
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Aspecto</th>
+                                        <th>Licenciamiento</th>
+                                        <th>Franquicia Tradicional</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Inversión Inicial</td>
+                                        <td>30-50% menor</td>
+                                        <td>Mayor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Regalías</td>
+                                        <td>3-5% de ventas</td>
+                                        <td>5-10% de ventas</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Control Operativo</td>
+                                        <td>Flexible</td>
+                                        <td>Estricto</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Duración Contrato</td>
+                                        <td>1-3 años renovables</td>
+                                        <td>5-10 años</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Contrato Tipo</a>
+                                <a href="#" class="btn-primary">Solicitar Reunión Informativa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SERVICIOS INMOBILIARIOS -->
+            <div id="inmobiliarios" class="vertical-content">
+                <div class="realestate-container">
+                    <!-- CORRETAJE INMOBILIARIO -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="icon"><i class="fas fa-home"></i></div>
+                            <h3>CORRETAJE INMOBILIARIO</h3>
+                            <p>Gestión profesional de compra, venta y renta de propiedades</p>
+                        </div>
+                        <div class="service-body">
+                            <p>Ofrecemos servicios integrales de corretaje inmobiliario para propiedades residenciales, comerciales e industriales.</p>
+                            
+                            <div class="calculator">
+                                <h4>Valoración Inmediata</h4>
+                                <input type="text" id="tipoPropiedad" placeholder="Tipo de propiedad (casa, departamento, local)">
+                                <input type="number" id="metrosCuadrados" placeholder="Metros cuadrados" min="0">
+                                <input type="text" id="zona" placeholder="Zona/Colonia">
+                                <button class="btn-primary" onclick="valorarPropiedad()">Obtener Valoración</button>
+                                <div class="result" id="resultadoValoracion"></div>
+                            </div>
+                            
+                            <ul class="fund-features">
+                                <li><i class="fas fa-check"></i> Valoración de mercado</li>
+                                <li><i class="fas fa-check"></i> Marketing especializado</li>
+                                <li><i class="fas fa-check"></i> Negociación profesional</li>
+                                <li><i class="fas fa-check"></i> Gestión documental</li>
+                                <li><i class="fas fa-check"></i> Asesoría legal y fiscal</li>
+                            </ul>
+                            
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Propiedades Disponibles</a>
+                                <a href="#" class="btn-primary">Solicitar Valoración Gratuita</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AVALÚOS -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                            <h3>AVALÚOS</h3>
+                            <p>Valuación profesional con validez oficial</p>
+                        </div>
+                        <div class="service-body">
+                            <p>Realizamos avalúos comerciales, hipotecarios, fiscales y de garantía con certificación oficial y entrega en 48-72 horas.</p>
+                            
+                            <div class="calculator">
+                                <h4>Calculadora de Costo de Avalúo</h4>
+                                <select id="tipoAvaluo" class="form-control">
+                                    <option value="">Selecciona tipo de avalúo</option>
+                                    <option value="comercial">Comercial</option>
+                                    <option value="hipotecario">Hipotecario</option>
+                                    <option value="fiscal">Fiscal</option>
+                                    <option value="garantia">De Garantía</option>
+                                </select>
+                                <input type="number" id="valorPropiedad" placeholder="Valor estimado de propiedad" min="0">
+                                <button class="btn-primary" onclick="calcularCostoAvaluo()">Calcular Costo</button>
+                                <div class="result" id="resultadoCostoAvaluo"></div>
+                            </div>
+                            
+                            <ul class="fund-features">
+                                <li><i class="fas fa-check"></i> Avalúos comerciales</li>
+                                <li><i class="fas fa-check"></i> Avalúos hipotecarios</li>
+                                <li><i class="fas fa-check"></i> Avalúos fiscales</li>
+                                <li><i class="fas fa-check"></i> Avalúos de garantía</li>
+                                <li><i class="fas fa-check"></i> Valuador certificado</li>
+                                <li><i class="fas fa-check"></i> Entrega en 48-72 horas</li>
+                            </ul>
+                            
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Documentación Requerida</a>
+                                <a href="#" class="btn-primary">Solicitar Avalúo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                <p>¿Listo para impulsar tu negocio? Déjanos tus datos y un consultor se pondrá en contacto contigo.</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Empresa *</label>
+                            <input type="text" id="company" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Servicio de interés *</label>
+                        <select id="service" class="form-control" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="fondos-publicos">Fondos Públicos</option>
+                            <option value="fondos-privados">Fondos Privados</option>
+                            <option value="afiliados">Programa de Afiliados</option>
+                            <option value="microfranquicias">Micro Franquicias</option>
+                            <option value="licenciamientos">Licenciamientos Pequeños Negocios</option>
+                            <option value="corretaje">Corretaje Inmobiliario</option>
+                            <option value="avaluos">Avalúos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje *</label>
+                        <textarea id="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget">Presupuesto estimado (opcional)</label>
+                        <select id="budget" class="form-control">
+                            <option value="">Selecciona un rango</option>
+                            <option value="0-100">Menos de $100,000</option>
+                            <option value="100-500">$100,000 - $500,000</option>
+                            <option value="500-1000">$500,000 - $1,000,000</option>
+                            <option value="1000+">Más de $1,000,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div>
+                            <input type="checkbox" id="privacy" required>
+                            <label for="privacy">Acepto la política de privacidad y el tratamiento de mis datos *</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Solicitar Cotización</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-img">LOGO S.I. CONSULTORES</div>
+                    <p>Especialistas en consultoría estratégica para el crecimiento y expansión empresarial.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="certifications">
+                        <div class="certification">AMEXCAP</div>
+                        <div class="certification">CANACO</div>
+                        <div class="certification">CONOCER</div>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Paseo de la Reforma 505, Col. Cuauhtémoc, CDMX</p>
+                    <p><i class="fas fa-phone"></i> +52 55 9876 5432</p>
+                    <p><i class="fas fa-envelope"></i> contacto@siconsultores.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 8:00 - 19:00 hrs</p>
+                    <p><i class="fas fa-clock"></i> Sábados: 9:00 - 14:00 hrs</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#fondos">Procuración de Fondos</a></li>
+                        <li><a href="#distribucion">Distribución</a></li>
+                        <li><a href="#franquicias">Franquicias y Licenciamientos</a></li>
+                        <li><a href="#inmobiliarios">Servicios Inmobiliarios</a></li>
+                        <li><a href="#contacto">Cotizaciones</a></li>
+                        <li><a href="#">Aviso de Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-blog">
+                    <h3>Últimas Noticias</h3>
+                    <div class="blog-posts">
+                        <div class="post">
+                            <h4>Nuevos Fondos para PyMEs 2024</h4>
+                            <p>Conoce los programas de financiamiento disponibles este año.</p>
+                            <a href="#">Leer más →</a>
+                        </div>
+                        <div class="post">
+                            <h4>Expansión de Red de Afiliados</h4>
+                            <p>Ampliamos cobertura a 5 nuevos estados de la república.</p>
+                            <a href="#">Leer más →</a>
+                        </div>
+                        <div class="post">
+                            <h4>Taller: Cómo Franchisar tu Negocio</h4>
+                            <p>Próximo taller gratuito el 15 de noviembre.</p>
+                            <a href="#">Leer más →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Soluciones Integrales Consultores. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Vertical navigation
+        document.querySelectorAll('.vertical-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                
+                // Update active button
+                document.querySelectorAll('.vertical-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Update active content
+                document.querySelectorAll('.vertical-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(target).classList.add('active');
+                
+                // Update nav links
+                document.querySelectorAll('#mainNav a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-vertical') === target) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Nav links for verticals
+        document.querySelectorAll('#mainNav a[data-vertical]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('data-vertical');
+                
+                // Update active button
+                document.querySelectorAll('.vertical-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-target') === target) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Update active content
+                document.querySelectorAll('.vertical-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(target).classList.add('active');
+                
+                // Update nav links
+                document.querySelectorAll('#mainNav a').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                document.getElementById('mainNav').classList.remove('active');
+                
+                // Scroll to verticals section
+                document.getElementById('verticales').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu solicitud. Un consultor se pondrá en contacto contigo en un plazo máximo de 24 horas.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Calculator functions
+        function calcularComisiones() {
+            const ventas = document.getElementById('ventasMensuales').value;
+            if (!ventas || ventas <= 0) {
+                alert('Por favor ingresa un monto válido de ventas mensuales.');
+                return;
+            }
+            
+            const ventasNum = parseFloat(ventas);
+            let comision;
+            
+            if (ventasNum < 50000) {
+                comision = ventasNum * 0.05; // 5%
+            } else if (ventasNum < 200000) {
+                comision = ventasNum * 0.07; // 7%
+            } else {
+                comision = ventasNum * 0.10; // 10%
+            }
+            
+            document.getElementById('resultadoComisiones').innerHTML = 
+                `Comisiones estimadas: $${comision.toLocaleString('es-MX', {minimumFractionDigits: 2, maximumFractionDigits: 2})} MXN`;
+        }
+        
+        function valorarPropiedad() {
+            const tipo = document.getElementById('tipoPropiedad').value;
+            const metros = document.getElementById('metrosCuadrados').value;
+            const zona = document.getElementById('zona').value;
+            
+            if (!tipo || !metros || !zona) {
+                alert('Por favor completa todos los campos.');
+                return;
+            }
+            
+            // Simulación de valoración (en una implementación real, esto se haría con datos reales)
+            const metrosNum = parseFloat(metros);
+            let precioPorM2;
+            
+            // Precios simulados por m2 según tipo de propiedad
+            switch(tipo.toLowerCase()) {
+                case 'casa':
+                    precioPorM2 = 25000;
+                    break;
+                case 'departamento':
+                    precioPorM2 = 30000;
+                    break;
+                case 'local':
+                    precioPorM2 = 35000;
+                    break;
+                default:
+                    precioPorM2 = 20000;
+            }
+            
+            // Ajuste por zona (simulado)
+            let factorZona = 1.0;
+            if (zona.toLowerCase().includes('centro') || zona.toLowerCase().includes('polanco') || zona.toLowerCase().includes('condesa')) {
+                factorZona = 1.5;
+            } else if (zona.toLowerCase().includes('santa fe') || zona.toLowerCase().includes('interlomas')) {
+                factorZona = 1.8;
+            }
+            
+            const valoracion = metrosNum * precioPorM2 * factorZona;
+            
+            document.getElementById('resultadoValoracion').innerHTML = 
+                `Valoración estimada: $${valoracion.toLocaleString('es-MX', {minimumFractionDigits: 2, maximumFractionDigits: 2})} MXN<br>
+                 <small>Esta es una estimación preliminar. Para una valoración precisa, solicita un avalúo profesional.</small>`;
+        }
+        
+        function calcularCostoAvaluo() {
+            const tipo = document.getElementById('tipoAvaluo').value;
+            const valor = document.getElementById('valorPropiedad').value;
+            
+            if (!tipo || !valor || valor <= 0) {
+                alert('Por favor completa todos los campos correctamente.');
+                return;
+            }
+            
+            const valorNum = parseFloat(valor);
+            let costoBase;
+            
+            // Costos base según tipo de avalúo
+            switch(tipo) {
+                case 'comercial':
+                    costoBase = 3500;
+                    break;
+                case 'hipotecario':
+                    costoBase = 3000;
+                    break;
+                case 'fiscal':
+                    costoBase = 2800;
+                    break;
+                case 'garantia':
+                    costoBase = 4000;
+                    break;
+                default:
+                    costoBase = 3000;
+            }
+            
+            // Ajuste por valor de propiedad
+            let porcentajeValor = 0;
+            if (valorNum > 1000000) {
+                porcentajeValor = valorNum * 0.0005; // 0.05%
+            } else if (valorNum > 5000000) {
+                porcentajeValor = valorNum * 0.0003; // 0.03%
+            }
+            
+            const costoTotal = costoBase + porcentajeValor;
+            
+            document.getElementById('resultadoCostoAvaluo').innerHTML = 
+                `Costo estimado: $${costoTotal.toLocaleString('es-MX', {minimumFractionDigits: 2, maximumFractionDigits: 2})} MXN<br>
+                 <small>Incluye visita técnica, elaboración de informe y certificación oficial.</small>`;
+        }
+    </script>
+</body>
+</html>

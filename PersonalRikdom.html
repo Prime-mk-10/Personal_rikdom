@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Rikdom - Soluciones Integrales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #e53e3e;
+            --accent: #38b2ac;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gray: #718096;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 200px;
+            height: 60px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .language-selector {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        /* BUSINESS VERTICALS */
+        .vertical-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .vertical-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .vertical-btn:hover, .vertical-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .vertical-content {
+            display: none;
+        }
+        
+        .vertical-content.active {
+            display: block;
+        }
+        
+        .subsections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .subsection-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .subsection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+        }
+        
+        .card-header h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .card-header .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .card-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .card-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-features li i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-secondary {
+            padding: 8px 20px;
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        /* CONTACT FORM */
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .logo-img {
+            width: 180px;
+            height: 50px;
+        }
+        
+        .footer-contact h3, .footer-links h3, .footer-newsletter h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ddd;
+            font-size: 14px;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .subsections-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .vertical-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .vertical-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .subsections-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <!-- LOGO PERSONAL RIKDOM AQUÍ -->
+                    LOGO PERSONAL RIKDOM
+                </div>
+                <div class="logo-text">
+                    <h1>PERSONAL RIKDOM</h1>
+                    <p>Soluciones integrales para tu crecimiento</p>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active" data-vertical="inmobiliario">Desarrollo Inmobiliario</a></li>
+                    <li><a href="#" data-vertical="comercial">Inteligencia Comercial</a></li>
+                    <li><a href="#" data-vertical="capacitacion">Capacitación</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <select class="language-selector">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
+                <a href="#contacto" class="btn-primary">Solicitar Información</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h2>Transformamos Visiones en Realidades</h2>
+            <p>En Personal Rikdom ofrecemos soluciones integrales en desarrollo inmobiliario, inteligencia comercial y capacitación especializada para impulsar el crecimiento de tu empresa.</p>
+            <a href="#verticales" class="btn-primary">Descubre Nuestras Soluciones</a>
+        </div>
+    </section>
+
+    <!-- BUSINESS VERTICALS -->
+    <section id="verticales">
+        <div class="container">
+            <div class="section-title">
+                <h2>Verticales de Negocio</h2>
+                <p>Explora nuestras áreas de especialización y descubre cómo podemos ayudarte a alcanzar tus objetivos empresariales.</p>
+            </div>
+            
+            <div class="vertical-nav">
+                <button class="vertical-btn active" data-target="inmobiliario">Desarrollo Inmobiliario</button>
+                <button class="vertical-btn" data-target="comercial">Inteligencia Comercial</button>
+                <button class="vertical-btn" data-target="capacitacion">Capacitación</button>
+            </div>
+            
+            <!-- DESARROLLO INMOBILIARIO -->
+            <div id="inmobiliario" class="vertical-content active">
+                <div class="subsections-grid">
+                    <!-- PROYECTOS -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-building"></i></div>
+                            <h3>PROYECTOS</h3>
+                            <p>Gestión integral de desarrollos inmobiliarios</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Desarrollamos proyectos residenciales, comerciales e industriales desde la conceptualización hasta la entrega final.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Estudio de factibilidad</li>
+                                <li><i class="fas fa-check"></i> Diseño arquitectónico</li>
+                                <li><i class="fas fa-check"></i> Gestión de permisos</li>
+                                <li><i class="fas fa-check"></i> Supervisión de obra</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Proyectos</a>
+                                <a href="#" class="btn-primary">Solicitar Asesoría</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FINANCIAMIENTO HIPOTECARIO -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-home"></i></div>
+                            <h3>FINANCIAMIENTO HIPOTECARIO</h3>
+                            <p>Soluciones crediticias para adquisición de vivienda</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Te ayudamos a obtener el crédito hipotecario que necesitas con las mejores condiciones del mercado.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Asesoría personalizada</li>
+                                <li><i class="fas fa-check"></i> Simulador de crédito</li>
+                                <li><i class="fas fa-check"></i> Tramitación ágil</li>
+                                <li><i class="fas fa-check"></i> Tasas competitivas</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Simular Crédito</a>
+                                <a href="#" class="btn-primary">Solicitar Información</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- INVERSIONES -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-chart-line"></i></div>
+                            <h3>INVERSIONES</h3>
+                            <p>Oportunidades de inversión en bienes raíces</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Identificamos y gestionamos oportunidades de inversión inmobiliaria con alto potencial de retorno.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Análisis de mercado</li>
+                                <li><i class="fas fa-check"></i> Due diligence</li>
+                                <li><i class="fas fa-check"></i> Gestión de cartera</li>
+                                <li><i class="fas fa-check"></i> Asesoría fiscal</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Oportunidades</a>
+                                <a href="#" class="btn-primary">Evaluar Perfil</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- DESARROLLO PROFESIONAL -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                            <h3>DESARROLLO PROFESIONAL</h3>
+                            <p>Formación especializada en sector inmobiliario</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Programas de capacitación y certificación para profesionales del sector inmobiliario.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Cursos especializados</li>
+                                <li><i class="fas fa-check"></i> Certificaciones</li>
+                                <li><i class="fas fa-check"></i> Talleres prácticos</li>
+                                <li><i class="fas fa-check"></i> Networking</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Programas</a>
+                                <a href="#" class="btn-primary">Inscribirse</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- INTELIGENCIA COMERCIAL -->
+            <div id="comercial" class="vertical-content">
+                <div class="subsections-grid">
+                    <!-- CONTRATACIONES P Y P -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-file-contract"></i></div>
+                            <h3>CONTRATACIONES P Y P</h3>
+                            <p>Gestión de contrataciones públicas y privadas</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Asesoría integral en procesos de contratación con sector público y privado.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Elaboración de propuestas</li>
+                                <li><i class="fas fa-check"></i> Cumplimiento normativo</li>
+                                <li><i class="fas fa-check"></i> Negociación contractual</li>
+                                <li><i class="fas fa-check"></i> Seguimiento de procesos</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Proceso</a>
+                                <a href="#" class="btn-primary">Solicitar Servicio</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PORTAL DE PROVEEDORES -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-store"></i></div>
+                            <h3>PORTAL DE PROVEEDORES</h3>
+                            <p>Plataforma digital para gestión de proveedores</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Sistema integral para registro, evaluación y gestión de proveedores corporativos.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Registro en línea</li>
+                                <li><i class="fas fa-check"></i> Evaluación de riesgos</li>
+                                <li><i class="fas fa-check"></i> Dashboard analítico</li>
+                                <li><i class="fas fa-check"></i> Comunicación integrada</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Acceder al Portal</a>
+                                <a href="#" class="btn-primary">Registrarse</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- E-COMMERCE -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                            <h3>E-COMMERCE</h3>
+                            <p>Soluciones digitales para ventas en línea</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Desarrollamos y optimizamos plataformas de comercio electrónico para maximizar ventas.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Tiendas online</li>
+                                <li><i class="fas fa-check"></i> Pasarelas de pago</li>
+                                <li><i class="fas fa-check"></i> Marketing digital</li>
+                                <li><i class="fas fa-check"></i> Analytics avanzado</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Casos de Éxito</a>
+                                <a href="#" class="btn-primary">Diagnóstico Gratuito</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- COMERCIALIZADORA -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-truck"></i></div>
+                            <h3>COMERCIALIZADORA</h3>
+                            <p>Distribución y comercialización de productos</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Red de distribución nacional para posicionar productos en el mercado mexicano.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Logística integral</li>
+                                <li><i class="fas fa-check"></i> Cobertura nacional</li>
+                                <li><i class="fas fa-check"></i> Gestión de inventarios</li>
+                                <li><i class="fas fa-check"></i> Servicio postventa</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Catálogo</a>
+                                <a href="#" class="btn-primary">Solicitar Cotización</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CAPACITACIÓN -->
+            <div id="capacitacion" class="vertical-content">
+                <div class="subsections-grid">
+                    <!-- UNIVERSIDAD VIRTUAL -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-university"></i></div>
+                            <h3>UNIVERSIDAD VIRTUAL</h3>
+                            <p>Educación en línea especializada</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Plataforma de educación en línea con programas académicos y certificaciones profesionales.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Programas académicos</li>
+                                <li><i class="fas fa-check"></i> Aulas virtuales</li>
+                                <li><i class="fas fa-check"></i> Tutores especializados</li>
+                                <li><i class="fas fa-check"></i> Certificaciones oficiales</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Programas</a>
+                                <a href="#" class="btn-primary">Solicitar Informes</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- COMPRAS MX -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-handshake"></i></div>
+                            <h3>COMPRAS MX</h3>
+                            <p>Capacitación en compras gubernamentales</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Programas especializados en procesos de compras públicas y licitaciones.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Cursos prácticos</li>
+                                <li><i class="fas fa-check"></i> Asesoría en convocatorias</li>
+                                <li><i class="fas fa-check"></i> Talleres vivenciales</li>
+                                <li><i class="fas fa-check"></i> Recursos actualizados</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Convocatorias</a>
+                                <a href="#" class="btn-primary">Inscribirse al Curso</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CRÉDITOS DE CARBONO -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-leaf"></i></div>
+                            <h3>CRÉDITOS DE CARBONO</h3>
+                            <p>Formación en sostenibilidad ambiental</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Capacitación en mercados de carbono, huella ecológica y sostenibilidad empresarial.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Cálculo de huella de carbono</li>
+                                <li><i class="fas fa-check"></i> Mercados voluntarios</li>
+                                <li><i class="fas fa-check"></i> Proyectos MDL</li>
+                                <li><i class="fas fa-check"></i> Reportes de sostenibilidad</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Calculadora</a>
+                                <a href="#" class="btn-primary">Evaluación Inicial</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CERTIFICACIÓN MICROSOFT -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fab fa-microsoft"></i></div>
+                            <h3>CERTIFICACIÓN MICROSOFT</h3>
+                            <p>Certificaciones oficiales Microsoft</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Centro autorizado para capacitación y certificación en tecnologías Microsoft.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Azure</li>
+                                <li><i class="fas fa-check"></i> Microsoft 365</li>
+                                <li><i class="fas fa-check"></i> Power Platform</li>
+                                <li><i class="fas fa-check"></i> Security</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Certificaciones</a>
+                                <a href="#" class="btn-primary">Inscribirse al Curso</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- KÓRIMA -->
+                    <div class="subsection-card">
+                        <div class="card-header">
+                            <div class="icon"><i class="fas fa-users"></i></div>
+                            <h3>KÓRIMA</h3>
+                            <p>Programa de desarrollo comunitario</p>
+                        </div>
+                        <div class="card-body">
+                            <p>Iniciativa de capacitación y desarrollo para comunidades y grupos vulnerables.</p>
+                            <ul class="card-features">
+                                <li><i class="fas fa-check"></i> Talleres comunitarios</li>
+                                <li><i class="fas fa-check"></i> Desarrollo de habilidades</li>
+                                <li><i class="fas fa-check"></i> Emprendimiento social</li>
+                                <li><i class="fas fa-check"></i> Red de apoyo</li>
+                            </ul>
+                            <div class="card-actions">
+                                <a href="#" class="btn-secondary">Ver Proyectos</a>
+                                <a href="#" class="btn-primary">Registrarse</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                <p>¿Tienes preguntas o necesitas asesoría personalizada? Déjanos tus datos y nos pondremos en contacto contigo.</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Empresa</label>
+                            <input type="text" id="company" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Servicio de interés *</label>
+                        <select id="service" class="form-control" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="proyectos">Proyectos Inmobiliarios</option>
+                            <option value="financiamiento">Financiamiento Hipotecario</option>
+                            <option value="inversiones">Inversiones</option>
+                            <option value="desarrollo-profesional">Desarrollo Profesional</option>
+                            <option value="contrataciones">Contrataciones P y P</option>
+                            <option value="portal">Portal de Proveedores</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="comercializadora">Comercializadora</option>
+                            <option value="universidad">Universidad Virtual</option>
+                            <option value="compras">Compras MX</option>
+                            <option value="carbono">Créditos de Carbono</option>
+                            <option value="microsoft">Certificación Microsoft</option>
+                            <option value="korima">Kórima</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje *</label>
+                        <textarea id="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div>
+                            <input type="checkbox" id="privacy" required>
+                            <label for="privacy">Acepto la política de privacidad y el tratamiento de mis datos *</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-img">LOGO PERSONAL RIKDOM</div>
+                    <p>Soluciones integrales para el crecimiento empresarial y personal.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Insurgentes Sur 1234, Col. Condesa, CDMX</p>
+                    <p><i class="fas fa-phone"></i> +52 55 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@personalrikdom.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 18:00 hrs</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inmobiliario">Desarrollo Inmobiliario</a></li>
+                        <li><a href="#comercial">Inteligencia Comercial</a></li>
+                        <li><a href="#capacitacion">Capacitación</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#">Aviso de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Boletín Informativo</h3>
+                    <p>Suscríbete para recibir noticias, tips y ofertas especiales.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Tu correo electrónico">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Personal Rikdom. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Vertical navigation
+        document.querySelectorAll('.vertical-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                
+                // Update active button
+                document.querySelectorAll('.vertical-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Update active content
+                document.querySelectorAll('.vertical-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(target).classList.add('active');
+                
+                // Update nav links
+                document.querySelectorAll('#mainNav a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-vertical') === target) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Nav links for verticals
+        document.querySelectorAll('#mainNav a[data-vertical]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('data-vertical');
+                
+                // Update active button
+                document.querySelectorAll('.vertical-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-target') === target) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Update active content
+                document.querySelectorAll('.vertical-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(target).classList.add('active');
+                
+                // Update nav links
+                document.querySelectorAll('#mainNav a').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                document.getElementById('mainNav').classList.remove('active');
+                
+                // Scroll to verticals section
+                document.getElementById('verticales').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

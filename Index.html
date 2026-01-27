@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Empresarial - Soluciones Integrales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #e53e3e;
+            --accent: #38b2ac;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gray: #718096;
+            --company1: #1a365d;
+            --company2: #2c5282;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--company1) 0%, var(--company2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .language-selector {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(44, 82, 130, 0.8)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* COMPANIES SECTION */
+        .companies-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .company-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .company-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .company-header {
+            padding: 40px 40px 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .company-1 .company-header {
+            background: linear-gradient(135deg, var(--company1) 0%, #2a4365 100%);
+        }
+        
+        .company-2 .company-header {
+            background: linear-gradient(135deg, var(--company2) 0%, #2c5282 100%);
+        }
+        
+        .company-logo {
+            width: 120px;
+            height: 120px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .company-title {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .company-title h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .company-title p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .company-body {
+            padding: 40px;
+        }
+        
+        .company-description {
+            margin-bottom: 30px;
+            color: var(--gray);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+        
+        .company-services {
+            margin-bottom: 40px;
+        }
+        
+        .company-services h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            background-color: #f7fafc;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .service-item i {
+            color: var(--accent);
+        }
+        
+        .company-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn-company {
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .company-1 .btn-primary {
+            background-color: var(--company1);
+            color: white;
+            border: 2px solid var(--company1);
+        }
+        
+        .company-1 .btn-primary:hover {
+            background-color: white;
+            color: var(--company1);
+        }
+        
+        .company-1 .btn-secondary {
+            background-color: white;
+            color: var(--company1);
+            border: 2px solid var(--company1);
+        }
+        
+        .company-1 .btn-secondary:hover {
+            background-color: var(--company1);
+            color: white;
+        }
+        
+        .company-2 .btn-primary {
+            background-color: var(--company2);
+            color: white;
+            border: 2px solid var(--company2);
+        }
+        
+        .company-2 .btn-primary:hover {
+            background-color: white;
+            color: var(--company2);
+        }
+        
+        .company-2 .btn-secondary {
+            background-color: white;
+            color: var(--company2);
+            border: 2px solid var(--company2);
+        }
+        
+        .company-2 .btn-secondary:hover {
+            background-color: var(--company2);
+            color: white;
+        }
+        
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 100px 0;
+            background-color: #f7fafc;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--gray);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* CONTACT SECTION */
+        .contact-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        .contact-details {
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #edf2f7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .contact-form-container {
+            background-color: #f7fafc;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .contact-form h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .logo-img {
+            width: 180px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-logo p {
+            color: #cbd5e0;
+            margin-bottom: 20px;
+        }
+        
+        .footer-company h3, .footer-links h3, .footer-contact h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-company ul, .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-company li, .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-company a, .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-company a:hover, .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cbd5e0;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #cbd5e0;
+            font-size: 14px;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1100px) {
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .company-card {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .company-header, .company-body {
+                padding: 30px 25px;
+            }
+            
+            .company-actions {
+                flex-direction: column;
+            }
+            
+            .btn-company {
+                justify-content: center;
+            }
+            
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .company-card {
+                max-width: 100%;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .companies-section, .about-section, .contact-section {
+                padding: 80px 0;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img">
+                    GRUPO EMPRESARIAL
+                </div>
+                <div class="logo-text">
+                    <h1>GRUPO EMPRESARIAL</h1>
+                    <p>Soluciones integrales para el crecimiento empresarial</p>
+                </div>
+            </a>
+            
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="#empresas">Nuestras Empresas</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <select class="language-selector">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h2>Transformamos Visiones en Resultados</h2>
+            <p>Un conjunto de empresas especializadas que ofrecen soluciones integrales para el desarrollo empresarial, inmobiliario, comercial y de capacitación.</p>
+            <a href="#empresas" class="btn-primary">Conoce Nuestras Empresas</a>
+        </div>
+    </section>
+
+    <!-- COMPANIES SECTION -->
+    <section id="empresas" class="companies-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras Empresas</h2>
+                <p>Descubre nuestras empresas especializadas, cada una enfocada en áreas específicas para ofrecer soluciones de máxima calidad.</p>
+            </div>
+            
+            <div class="companies-grid">
+                <!-- PERSONAL RIKDOM -->
+                <div class="company-card company-1">
+                    <div class="company-header">
+                        <div class="company-logo">
+                            PR
+                        </div>
+                        <div class="company-title">
+                            <h3>PERSONAL RIKDOM</h3>
+                            <p>Soluciones integrales para tu crecimiento</p>
+                        </div>
+                    </div>
+                    <div class="company-body">
+                        <div class="company-description">
+                            Especialistas en desarrollo inmobiliario, inteligencia comercial y capacitación especializada para impulsar el crecimiento de empresas y profesionales.
+                        </div>
+                        
+                        <div class="company-services">
+                            <h4><i class="fas fa-bullseye"></i> Áreas de Especialización</h4>
+                            <div class="services-grid">
+                                <div class="service-item">
+                                    <i class="fas fa-building"></i>
+                                    <span>Desarrollo Inmobiliario</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Inteligencia Comercial</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Capacitación</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-home"></i>
+                                    <span>Financiamiento Hipotecario</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="company-actions">
+                            <a href="personal-rikdom.html" class="btn-company btn-primary">
+                                <i class="fas fa-eye"></i> Ver Página Completa
+                            </a>
+                            <a href="#contacto" class="btn-company btn-secondary">
+                                <i class="fas fa-envelope"></i> Contactar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SOLUCIONES INTEGRALES CONSULTORES -->
+                <div class="company-card company-2">
+                    <div class="company-header">
+                        <div class="company-logo">
+                            SIC
+                        </div>
+                        <div class="company-title">
+                            <h3>SOLUCIONES INTEGRALES CONSULTORES</h3>
+                            <p>Asesoría especializada para el crecimiento empresarial</p>
+                        </div>
+                    </div>
+                    <div class="company-body">
+                        <div class="company-description">
+                            Expertos en procuración de fondos, distribución, franquicias y servicios inmobiliarios para potenciar y expandir negocios en todos los sectores.
+                        </div>
+                        
+                        <div class="company-services">
+                            <h4><i class="fas fa-bullseye"></i> Áreas de Especialización</h4>
+                            <div class="services-grid">
+                                <div class="service-item">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    <span>Procuración de Fondos</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-truck-loading"></i>
+                                    <span>Distribución</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-store-alt"></i>
+                                    <span>Franquicias y Licenciamientos</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-clipboard-check"></i>
+                                    <span>Servicios Inmobiliarios</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="company-actions">
+                            <a href="soluciones-integrales.html" class="btn-company btn-primary">
+                                <i class="fas fa-eye"></i> Ver Página Completa
+                            </a>
+                            <a href="#contacto" class="btn-company btn-secondary">
+                                <i class="fas fa-envelope"></i> Contactar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="nosotros" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre Nuestro Grupo Empresarial</h2>
+                    <p>Somos un grupo de empresas especializadas que trabajan de manera sinérgica para ofrecer soluciones integrales a nuestros clientes. Nuestra experiencia combinada abarca más de 15 años en el mercado.</p>
+                    <p>Cada una de nuestras empresas se enfoca en áreas específicas de expertise, permitiéndonos ofrecer servicios de alta calidad y resultados tangibles para nuestros clientes.</p>
+                    <p>Nuestra filosofía se basa en la creación de valor a través de soluciones innovadoras, ética profesional y compromiso con el éxito de nuestros clientes.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Años de Experiencia</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Empresas Especializadas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Clientes Satisfechos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <!-- Imagen representativa del grupo -->
+                    <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--company1) 0%, var(--company2) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold;">
+                        IMAGEN DEL GRUPO EMPRESARIAL
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contáctanos</h3>
+                    <p>¿Tienes un proyecto en mente o necesitas asesoría especializada? Ponte en contacto con nosotros y te ayudaremos a encontrar la solución ideal.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Oficinas Centrales</h4>
+                                <p>Av. Insurgentes Sur 1234, Col. Condesa, CDMX</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Teléfono</h4>
+                                <p>+52 55 1234 5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Correo Electrónico</h4>
+                                <p>info@grupoempresarial.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <div class="contact-form">
+                        <h3>Envíanos un Mensaje</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Nombre completo *</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Correo electrónico *</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Empresa</label>
+                                <input type="text" id="company" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="interest">Empresa de interés</label>
+                                <select id="interest" class="form-control">
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="personal-rikdom">Personal Rikdom</option>
+                                    <option value="soluciones-integrales">Soluciones Integrales Consultores</option>
+                                    <option value="ambas">Ambas</option>
+                                    <option value="grupo">Grupo Empresarial</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensaje *</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-img">GRUPO EMPRESARIAL</div>
+                    <p>Un conjunto de empresas especializadas en ofrecer soluciones integrales para el crecimiento empresarial.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-company">
+                    <h3>Nuestras Empresas</h3>
+                    <ul>
+                        <li><a href="personal-rikdom.html">Personal Rikdom</a></li>
+                        <li><a href="soluciones-integrales.html">Soluciones Integrales Consultores</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="#empresas">Nuestras Empresas</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#">Aviso de Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Insurgentes Sur 1234, CDMX</p>
+                    <p><i class="fas fa-phone"></i> +52 55 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@grupoempresarial.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 18:00 hrs</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Grupo Empresarial. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+        
+        // Highlight active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#mainNav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

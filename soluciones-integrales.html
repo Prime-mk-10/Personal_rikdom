@@ -55,16 +55,17 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            text-decoration: none;
         }
         
         .logo-img {
             width: 200px;
             height: 60px;
-            background-color: #ddd;
+            background-color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
+            color: white;
             font-weight: bold;
             border-radius: 5px;
         }
@@ -123,11 +124,30 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
+            display: inline-block;
         }
         
         .btn-primary:hover {
             background-color: #c05621;
             transform: translateY(-2px);
+        }
+        
+        .back-to-home {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: 1px solid var(--primary);
+        }
+        
+        .back-to-home:hover {
+            background-color: var(--primary);
+            color: white;
         }
         
         .mobile-menu-btn {
@@ -433,7 +453,7 @@
             color: var(--primary);
         }
         
-        .calculator input {
+        .calculator input, .calculator select {
             width: 100%;
             padding: 10px 15px;
             margin-bottom: 15px;
@@ -475,7 +495,7 @@
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 16px;
         }
         
@@ -712,9 +732,12 @@
     <!-- HEADER -->
     <header>
         <div class="container header-container">
+            <a href="index.html" class="back-to-home">
+                <i class="fas fa-arrow-left"></i> Volver al Grupo
+            </a>
+            
             <div class="logo">
                 <div class="logo-img">
-                    <!-- LOGO SOLUCIONES INTEGRALES CONSULTORES AQUÍ -->
                     LOGO S.I. CONSULTORES
                 </div>
                 <div class="logo-text">
@@ -1162,14 +1185,14 @@
                 </div>
                 
                 <div class="footer-links">
-                    <h3>Servicios</h3>
+                    <h3>Enlaces</h3>
                     <ul>
+                        <li><a href="index.html">Grupo Empresarial</a></li>
                         <li><a href="#fondos">Procuración de Fondos</a></li>
                         <li><a href="#distribucion">Distribución</a></li>
                         <li><a href="#franquicias">Franquicias y Licenciamientos</a></li>
                         <li><a href="#inmobiliarios">Servicios Inmobiliarios</a></li>
-                        <li><a href="#contacto">Cotizaciones</a></li>
-                        <li><a href="#">Aviso de Privacidad</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
                 
@@ -1196,7 +1219,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Soluciones Integrales Consultores. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Soluciones Integrales Consultores. Todos los derechos reservados. | <a href="index.html" style="color: #ddd;">Volver al Grupo Empresarial</a></p>
             </div>
         </div>
     </footer>

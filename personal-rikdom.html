@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Rikdom - Soluciones Integrales</title>
+    <title>Personal Rikdom - Estrategias Integrales</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -55,17 +55,16 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            text-decoration: none;
         }
         
         .logo-img {
             width: 200px;
             height: 60px;
-            background-color: var(--primary);
+            background-color: #ddd;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--primary);
             font-weight: bold;
             border-radius: 5px;
         }
@@ -123,30 +122,11 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            display: inline-block;
         }
         
         .btn-primary:hover {
             background-color: #c53030;
             transform: translateY(-2px);
-        }
-        
-        .back-to-home {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            border: 1px solid var(--primary);
-        }
-        
-        .back-to-home:hover {
-            background-color: var(--primary);
-            color: white;
         }
         
         .mobile-menu-btn {
@@ -155,11 +135,84 @@
             cursor: pointer;
         }
         
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+        /* SLIDER BANNER */
+        .banner-slider {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
             background-size: cover;
             background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .slide-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+        
+        .slide-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .dot.active {
+            background-color: var(--accent);
+            transform: scale(1.3);
+        }
+        
+        /* HERO SECTION - Mantenido para contenido estático */
+        .hero {
+            background-color: var(--primary);
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -321,12 +374,39 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            display: inline-block;
         }
         
         .btn-secondary:hover {
             background-color: var(--accent);
             color: white;
+        }
+        
+        /* FIDEICOMISOS SECTION */
+        .fideicomisos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .fideicomiso-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .fideicomiso-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .fideicomiso-card h4 i {
+            color: var(--accent);
         }
         
         /* CONTACT FORM */
@@ -479,6 +559,14 @@
             .form-row {
                 grid-template-columns: 1fr;
             }
+            
+            .slide-content h2 {
+                font-size: 36px;
+            }
+            
+            .slide-content p {
+                font-size: 18px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -527,6 +615,14 @@
             .section-title h2 {
                 font-size: 30px;
             }
+            
+            .banner-slider {
+                height: 400px;
+            }
+            
+            .fideicomisos-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 576px) {
@@ -545,56 +641,142 @@
             section {
                 padding: 60px 0;
             }
+            
+            .banner-slider {
+                height: 350px;
+                margin-bottom: 50px;
+            }
+            
+            .slide-content h2 {
+                font-size: 28px;
+            }
+            
+            .slide-content p {
+                font-size: 16px;
+            }
+        }
+        .back-to-home {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: 1px solid var(--primary);
+        }
+        
+        .back-to-home:hover {
+            background-color: var(--primary);
+            color: white;
         }
     </style>
 </head>
 <body>
     <!-- HEADER -->
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="back-to-home">
-                <i class="fas fa-arrow-left"></i> Volver al Grupo
-            </a>
-            
-            <div class="logo">
-                <div class="logo-img">
-                    LOGO PERSONAL RIKDOM
-                </div>
-                <div class="logo-text">
-                    <h1>PERSONAL RIKDOM</h1>
-                    <p>Soluciones integrales para tu crecimiento</p>
-                </div>
+  <header>
+    <div class="container header-container">
+        <!-- Botón para volver al grupo empresarial -->
+        <a href="index.html" class="back-to-home">
+            <i class="fas fa-arrow-left"></i> Volver al Grupo
+        </a>
+        
+        <!-- Logo y nombre de la empresa -->
+        <div class="logo">
+            <div class="logo-img">
+                <img
+                    src="Images/Icono_SIC.jpeg"
+                    alt="Soluciones Integrales Consultores"
+                    style="width: 100%; height: 100%; object-fit: contain"
+                />
             </div>
-            
-            <div class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </div>
-            
-            <nav id="mainNav">
-                <ul>
-                    <li><a href="#" class="active" data-vertical="inmobiliario">Desarrollo Inmobiliario</a></li>
-                    <li><a href="#" data-vertical="comercial">Inteligencia Comercial</a></li>
-                    <li><a href="#" data-vertical="capacitacion">Capacitación</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-actions">
-                <select class="language-selector">
-                    <option value="es">ES</option>
-                    <option value="en">EN</option>
-                </select>
-                <a href="#contacto" class="btn-primary">Solicitar Información</a>
+            <div class="logo-text">
+                <h1>SOLUCIONES INTEGRALES CONSULTORES</h1>
+                <p>Estrategias integrales para tu crecimiento</p>
             </div>
         </div>
-    </header>
+        
+        <!-- Menú móvil -->
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <!-- Navegación principal -->
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#" class="active">Procuración de Fondos</a></li>
+                <li><a href="#" data-vertical="inmobiliario">Desarrollo Inmobiliario</a></li>
+                <li><a href="#" data-vertical="comercial">Inteligencia Comercial</a></li>
+                <li><a href="#" data-vertical="capacitacion">Capacitación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Acciones del header -->
+        <div class="header-actions">
+            <select class="language-selector">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </select>
+            <a href="#contacto" class="btn-primary">Cotizar Servicio</a>
+        </div>
+    </div>
+</header>
+
+    <!-- BANNER SLIDER -->
+    <div class="banner-slider">
+        <!-- Slide 1 -->
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            <div class="slide-content">
+                <h2>Desarrollo Inmobiliario Integral</h2>
+                <p>Estrategias innovadoras para proyectos residenciales, comerciales, industriales y de usos mixtos</p>
+                <a href="#inmobiliario" data-vertical="inmobiliario" class="btn-primary">Conocer Más</a>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            <div class="slide-content">
+                <h2>Inteligencia Comercial Avanzada</h2>
+                <p>Estrategias digitales y de mercado para optimizar tus procesos comerciales</p>
+                <a href="#comercial" data-vertical="comercial" class="btn-primary">Explorar Servicios</a>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');">
+            <div class="slide-content">
+                <h2>Capacitación Especializada</h2>
+                <p>Estrategias de formación para el desarrollo profesional y empresarial</p>
+                <a href="#capacitacion" data-vertical="capacitacion" class="btn-primary">Ver Programas</a>
+            </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');">
+            <div class="slide-content">
+                <h2>Estrategias de Inversión</h2>
+                <p>Fideicomisos especializados con alto potencial de retorno</p>
+                <a href="#inmobiliario" class="btn-primary">Ver Oportunidades</a>
+            </div>
+        </div>
+        
+        <div class="slider-dots">
+            <div class="dot active" data-slide="0"></div>
+            <div class="dot" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+            <div class="dot" data-slide="3"></div>
+        </div>
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <h2>Transformamos Visiones en Realidades</h2>
-            <p>En Personal Rikdom ofrecemos soluciones integrales en desarrollo inmobiliario, inteligencia comercial y capacitación especializada para impulsar el crecimiento de tu empresa.</p>
-            <a href="#verticales" class="btn-primary">Descubre Nuestras Soluciones</a>
+            <p>En Personal Rikdom ofrecemos estrategias integrales en desarrollo inmobiliario, inteligencia comercial y capacitación especializada para impulsar el crecimiento de tu empresa.</p>
+            <a href="#verticales" class="btn-primary">Descubre Nuestras Estrategias</a>
         </div>
     </section>
 
@@ -612,10 +794,10 @@
                 <button class="vertical-btn" data-target="capacitacion">Capacitación</button>
             </div>
             
-            <!-- DESARROLLO INMOBILIARIO -->
+            <!-- DESARROLLO INMOBILIARIO - ACTUALIZADO -->
             <div id="inmobiliario" class="vertical-content active">
                 <div class="subsections-grid">
-                    <!-- PROYECTOS -->
+                    <!-- PROYECTOS ACTUALIZADO -->
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-building"></i></div>
@@ -623,12 +805,13 @@
                             <p>Gestión integral de desarrollos inmobiliarios</p>
                         </div>
                         <div class="card-body">
-                            <p>Desarrollamos proyectos residenciales, comerciales e industriales desde la conceptualización hasta la entrega final.</p>
+                            <p>Desarrollamos proyectos residenciales, comerciales, industriales y de usos mixtos desde la conceptualización hasta la entrega final.</p>
                             <ul class="card-features">
                                 <li><i class="fas fa-check"></i> Estudio de factibilidad</li>
                                 <li><i class="fas fa-check"></i> Diseño arquitectónico</li>
                                 <li><i class="fas fa-check"></i> Gestión de permisos</li>
                                 <li><i class="fas fa-check"></i> Supervisión de obra</li>
+                                <li><i class="fas fa-check"></i> Ejecución de obra</li>
                             </ul>
                             <div class="card-actions">
                                 <a href="#" class="btn-secondary">Ver Proyectos</a>
@@ -659,22 +842,44 @@
                         </div>
                     </div>
                     
-                    <!-- INVERSIONES -->
+                    <!-- INVERSIONES ACTUALIZADO -->
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-chart-line"></i></div>
                             <h3>INVERSIONES</h3>
-                            <p>Oportunidades de inversión en bienes raíces</p>
+                            <p>Oportunidades de inversión con alto potencial de retorno</p>
                         </div>
                         <div class="card-body">
-                            <p>Identificamos y gestionamos oportunidades de inversión inmobiliaria con alto potencial de retorno.</p>
-                            <ul class="card-features">
-                                <li><i class="fas fa-check"></i> Análisis de mercado</li>
-                                <li><i class="fas fa-check"></i> Due diligence</li>
-                                <li><i class="fas fa-check"></i> Gestión de cartera</li>
-                                <li><i class="fas fa-check"></i> Asesoría fiscal</li>
-                            </ul>
-                            <div class="card-actions">
+                            <p>Identificamos y gestionamos oportunidades de inversión con alto potencial de retorno a través de nuestros fideicomisos especializados.</p>
+                            
+                            <div class="fideicomisos-grid">
+                                <div class="fideicomiso-card">
+                                    <h4><i class="fas fa-shopping-cart"></i> Fideicomiso al Consumo</h4>
+                                    <p>Inversiones en el sector de bienes de consumo y retail.</p>
+                                </div>
+                                <div class="fideicomiso-card">
+                                    <h4><i class="fas fa-piggy-bank"></i> Fideicomiso de Inversión y Ahorro</h4>
+                                    <p>Estrategias de ahorro e inversión a largo plazo.</p>
+                                </div>
+                                <div class="fideicomiso-card">
+                                    <h4><i class="fas fa-building"></i> Fideicomiso de Bienes Raíces</h4>
+                                    <p>Inversiones en propiedades y desarrollos inmobiliarios.</p>
+                                </div>
+                                <div class="fideicomiso-card">
+                                    <h4><i class="fas fa-road"></i> Fideicomiso de Infraestructura</h4>
+                                    <p>Proyectos de infraestructura pública y privada.</p>
+                                </div>
+                                <div class="fideicomiso-card">
+                                    <h4><i class="fas fa-briefcase"></i> Fideicomiso de Activos y Negocios</h4>
+                                    <p>Adquisición y gestión de empresas y activos productivos.</p>
+                                </div>
+                                <div class="fideicomiso-card">
+                                    <h4><i class="fas fa-futbol"></i> Fideicomiso de Infraestructura Deportiva</h4>
+                                    <p>Desarrollo y gestión de instalaciones deportivas.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="card-actions" style="margin-top: 20px;">
                                 <a href="#" class="btn-secondary">Ver Oportunidades</a>
                                 <a href="#" class="btn-primary">Evaluar Perfil</a>
                             </div>
@@ -705,10 +910,10 @@
                 </div>
             </div>
             
-            <!-- INTELIGENCIA COMERCIAL -->
+            <!-- INTELIGENCIA COMERCIAL ACTUALIZADO -->
             <div id="comercial" class="vertical-content">
                 <div class="subsections-grid">
-                    <!-- CONTRATACIONES P Y P -->
+                    <!-- CONTRATACIONES P Y P ACTUALIZADO -->
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-file-contract"></i></div>
@@ -716,12 +921,13 @@
                             <p>Gestión de contrataciones públicas y privadas</p>
                         </div>
                         <div class="card-body">
-                            <p>Asesoría integral en procesos de contratación con sector público y privado.</p>
+                            <p>Asesoría integral en procesos de contratación con sector público y privado, a través de nuestro servicio de CONTRATACIONES CONCIERGE.</p>
                             <ul class="card-features">
                                 <li><i class="fas fa-check"></i> Elaboración de propuestas</li>
                                 <li><i class="fas fa-check"></i> Cumplimiento normativo</li>
                                 <li><i class="fas fa-check"></i> Negociación contractual</li>
                                 <li><i class="fas fa-check"></i> Seguimiento de procesos</li>
+                                <li><i class="fas fa-check"></i> Registro en portales y plataformas</li>
                             </ul>
                             <div class="card-actions">
                                 <a href="#" class="btn-secondary">Ver Proceso</a>
@@ -730,7 +936,7 @@
                         </div>
                     </div>
                     
-                    <!-- PORTAL DE PROVEEDORES -->
+                    <!-- PORTAL DE PROVEEDORES ACTUALIZADO -->
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-store"></i></div>
@@ -738,7 +944,7 @@
                             <p>Plataforma digital para gestión de proveedores</p>
                         </div>
                         <div class="card-body">
-                            <p>Sistema integral para registro, evaluación y gestión de proveedores corporativos.</p>
+                            <p>Sistema integral para registro, evaluación y gestión de proveedores corporativos para iniciar y ejecutar contrataciones públicas y privadas.</p>
                             <ul class="card-features">
                                 <li><i class="fas fa-check"></i> Registro en línea</li>
                                 <li><i class="fas fa-check"></i> Evaluación de riesgos</li>
@@ -752,24 +958,25 @@
                         </div>
                     </div>
                     
-                    <!-- E-COMMERCE -->
+                    <!-- E-COMMERCE ACTUALIZADO -->
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-shopping-cart"></i></div>
                             <h3>E-COMMERCE</h3>
-                            <p>Soluciones digitales para ventas en línea</p>
+                            <p>Plataforma propia con cash back para inversiones</p>
                         </div>
                         <div class="card-body">
-                            <p>Desarrollamos y optimizamos plataformas de comercio electrónico para maximizar ventas.</p>
+                            <p>E-commerce propio de Personal Rikdom como afiliado de empresas para vender sus productos, proporcionando cash back para inversiones.</p>
                             <ul class="card-features">
-                                <li><i class="fas fa-check"></i> Tiendas online</li>
-                                <li><i class="fas fa-check"></i> Pasarelas de pago</li>
-                                <li><i class="fas fa-check"></i> Marketing digital</li>
+                                <li><i class="fas fa-check"></i> Plataforma personalizada</li>
+                                <li><i class="fas fa-check"></i> Sistema de afiliados</li>
+                                <li><i class="fas fa-check"></i> Cash back para inversiones</li>
                                 <li><i class="fas fa-check"></i> Analytics avanzado</li>
+                                <li><i class="fas fa-check"></i> Integración multi-empresa</li>
                             </ul>
                             <div class="card-actions">
-                                <a href="#" class="btn-secondary">Ver Casos de Éxito</a>
-                                <a href="#" class="btn-primary">Diagnóstico Gratuito</a>
+                                <a href="#" class="btn-secondary">Ver Plataforma Demo</a>
+                                <a href="#" class="btn-primary">Convertirse en Afiliado</a>
                             </div>
                         </div>
                     </div>
@@ -798,7 +1005,7 @@
                 </div>
             </div>
             
-            <!-- CAPACITACIÓN -->
+            <!-- CAPACITACIÓN ACTUALIZADO -->
             <div id="capacitacion" class="vertical-content">
                 <div class="subsections-grid">
                     <!-- UNIVERSIDAD VIRTUAL -->
@@ -845,23 +1052,23 @@
                         </div>
                     </div>
                     
-                    <!-- CRÉDITOS DE CARBONO -->
+                    <!-- CRÉDITOS DE CARBONO ACTUALIZADO -->
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-leaf"></i></div>
                             <h3>CRÉDITOS DE CARBONO</h3>
-                            <p>Formación en sostenibilidad ambiental</p>
+                            <p>Gestión de proyectos de carbono</p>
                         </div>
                         <div class="card-body">
-                            <p>Capacitación en mercados de carbono, huella ecológica y sostenibilidad empresarial.</p>
+                            <p>Desarrollo y gestión de proyectos de carbono para empresas comprometidas con la sostenibilidad.</p>
                             <ul class="card-features">
-                                <li><i class="fas fa-check"></i> Cálculo de huella de carbono</li>
-                                <li><i class="fas fa-check"></i> Mercados voluntarios</li>
-                                <li><i class="fas fa-check"></i> Proyectos MDL</li>
-                                <li><i class="fas fa-check"></i> Reportes de sostenibilidad</li>
+                                <li><i class="fas fa-check"></i> Diseño de proyectos MDL</li>
+                                <li><i class="fas fa-check"></i> Validación y verificación</li>
+                                <li><i class="fas fa-check"></i> Registro en mercados</li>
+                                <li><i class="fas fa-check"></i> Comercialización de créditos</li>
                             </ul>
                             <div class="card-actions">
-                                <a href="#" class="btn-secondary">Calculadora</a>
+                                <a href="#" class="btn-secondary">Ver Proyectos</a>
                                 <a href="#" class="btn-primary">Evaluación Inicial</a>
                             </div>
                         </div>
@@ -889,20 +1096,21 @@
                         </div>
                     </div>
                     
-                    <!-- KÓRIMA -->
+                    <!-- KÓRIMA ACTUALIZADO -->
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-users"></i></div>
                             <h3>KÓRIMA</h3>
-                            <p>Programa de desarrollo comunitario</p>
+                            <p>Gestor de recursos públicos</p>
                         </div>
                         <div class="card-body">
-                            <p>Iniciativa de capacitación y desarrollo para comunidades y grupos vulnerables.</p>
+                            <p>Gestión especializada para optimizar el uso de recursos públicos y cumplimiento normativo.</p>
                             <ul class="card-features">
-                                <li><i class="fas fa-check"></i> Talleres comunitarios</li>
+                                <li><i class="fas fa-check"></i> Diagnóstico para mejora de gestión</li>
+                                <li><i class="fas fa-check"></i> Cumplimiento normativo</li>
+                                <li><i class="fas fa-check"></i> Capacitación especializada</li>
                                 <li><i class="fas fa-check"></i> Desarrollo de habilidades</li>
-                                <li><i class="fas fa-check"></i> Emprendimiento social</li>
-                                <li><i class="fas fa-check"></i> Red de apoyo</li>
+                                <li><i class="fas fa-check"></i> Instalación de software</li>
                             </ul>
                             <div class="card-actions">
                                 <a href="#" class="btn-secondary">Ver Proyectos</a>
@@ -953,7 +1161,7 @@
                             <option value="">Selecciona un servicio</option>
                             <option value="proyectos">Proyectos Inmobiliarios</option>
                             <option value="financiamiento">Financiamiento Hipotecario</option>
-                            <option value="inversiones">Inversiones</option>
+                            <option value="inversiones">Inversiones y Fideicomisos</option>
                             <option value="desarrollo-profesional">Desarrollo Profesional</option>
                             <option value="contrataciones">Contrataciones P y P</option>
                             <option value="portal">Portal de Proveedores</option>
@@ -991,7 +1199,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="logo-img">LOGO PERSONAL RIKDOM</div>
-                    <p>Soluciones integrales para el crecimiento empresarial y personal.</p>
+                    <p>Estrategias integrales para el crecimiento empresarial y personal.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1003,21 +1211,22 @@
                 
                 <div class="footer-contact">
                     <h3>Contacto</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Insurgentes Sur 1234, Col. Condesa, CDMX</p>
-                    <p><i class="fas fa-phone"></i> +52 55 1234 5678</p>
-                    <p><i class="fas fa-envelope"></i> info@personalrikdom.com</p>
+                    <!-- DATOS DE UBICACIÓN Y CONTACTO AQUÍ -->
+                    <p><i class="fas fa-map-marker-alt"></i> [Dirección a proporcionar]</p>
+                    <p><i class="fas fa-phone"></i> [Teléfono a proporcionar]</p>
+                    <p><i class="fas fa-envelope"></i> [Email a proporcionar]</p>
                     <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 18:00 hrs</p>
                 </div>
                 
                 <div class="footer-links">
-                    <h3>Enlaces</h3>
+                    <h3>Enlaces Rápidos</h3>
                     <ul>
-                        <li><a href="index.html">Grupo Empresarial</a></li>
                         <li><a href="#inmobiliario">Desarrollo Inmobiliario</a></li>
                         <li><a href="#comercial">Inteligencia Comercial</a></li>
                         <li><a href="#capacitacion">Capacitación</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                         <li><a href="#">Aviso de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
                     </ul>
                 </div>
                 
@@ -1032,7 +1241,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Personal Rikdom. Todos los derechos reservados. | <a href="index.html" style="color: #ddd;">Volver al Grupo Empresarial</a></p>
+                <p>&copy; 2023 Personal Rikdom. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -1041,6 +1250,34 @@
         // Mobile menu toggle
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
             document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Slider functionality
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            // Reset all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Set new slide
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Dot click events
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
         });
         
         // Vertical navigation

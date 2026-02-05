@@ -5,725 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Rikdom - Estrategias Integrales</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1a365d;
-            --secondary: #e53e3e;
-            --accent: #38b2ac;
-            --light: #f7fafc;
-            --dark: #2d3748;
-            --gray: #718096;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* HEADER */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo-img {
-            width: 200px;
-            height: 60px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        
-        .logo-text h1 {
-            font-size: 24px;
-            color: var(--primary);
-        }
-        
-        .logo-text p {
-            font-size: 14px;
-            color: var(--gray);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-        
-        nav a:hover, nav a.active {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .language-selector {
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: white;
-        }
-        
-        .btn-primary {
-            background-color: var(--secondary);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary:hover {
-            background-color: #c53030;
-            transform: translateY(-2px);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        /* SLIDER BANNER */
-        .banner-slider {
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-            margin-bottom: 80px;
-        }
-        
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .slide.active {
-            opacity: 1;
-        }
-        
-        .slide-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.7));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-        
-        .slide-content h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            max-width: 800px;
-        }
-        
-        .slide-content p {
-            font-size: 20px;
-            max-width: 700px;
-            margin-bottom: 30px;
-        }
-        
-        .slider-dots {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-        }
-        
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .dot.active {
-            background-color: var(--accent);
-            transform: scale(1.3);
-        }
-        
-        /* HERO SECTION - Mantenido para contenido estático */
-        .hero {
-            background-color: var(--primary);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        /* SECTIONS */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--primary);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 4px;
-            background-color: var(--secondary);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-title p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 20px auto 0;
-        }
-        
-        /* BUSINESS VERTICALS */
-        .vertical-nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .vertical-btn {
-            padding: 12px 25px;
-            background-color: white;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .vertical-btn:hover, .vertical-btn.active {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .vertical-content {
-            display: none;
-        }
-        
-        .vertical-content.active {
-            display: block;
-        }
-        
-        .subsections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .subsection-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .subsection-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .card-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 20px;
-        }
-        
-        .card-header h3 {
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-        
-        .card-header .icon {
-            font-size: 30px;
-            margin-bottom: 10px;
-            color: var(--accent);
-        }
-        
-        .card-body {
-            padding: 25px;
-        }
-        
-        .card-body p {
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
-        
-        .card-features {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-        
-        .card-features li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-        
-        .card-features li i {
-            color: var(--accent);
-            margin-right: 10px;
-        }
-        
-        .card-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .btn-secondary {
-            padding: 8px 20px;
-            background-color: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--accent);
-            color: white;
-        }
-        
-        /* FIDEICOMISOS SECTION */
-        .fideicomisos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .fideicomiso-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--accent);
-        }
-        
-        .fideicomiso-card h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .fideicomiso-card h4 i {
-            color: var(--accent);
-        }
-        
-        /* CONTACT FORM */
-        .contact-form {
-            background-color: white;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        /* FOOTER */
-        footer {
-            background-color: var(--primary);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo .logo-img {
-            width: 180px;
-            height: 50px;
-        }
-        
-        .footer-contact h3, .footer-links h3, .footer-newsletter h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .footer-contact p {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .newsletter-form {
-            display: flex;
-            margin-top: 20px;
-        }
-        
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 5px 0 0 5px;
-        }
-        
-        .newsletter-form button {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 0 20px;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .social-icons a:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #ddd;
-            font-size: 14px;
-        }
-        
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 992px) {
-            .subsections-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .slide-content h2 {
-                font-size: 36px;
-            }
-            
-            .slide-content p {
-                font-size: 18px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-wrap: wrap;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav {
-                display: none;
-                width: 100%;
-                margin-top: 20px;
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .hero h2 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .vertical-nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .vertical-btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-            
-            .section-title h2 {
-                font-size: 30px;
-            }
-            
-            .banner-slider {
-                height: 400px;
-            }
-            
-            .fideicomisos-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .subsections-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                padding: 25px;
-            }
-            
-            .hero {
-                padding: 60px 0;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            .banner-slider {
-                height: 350px;
-                margin-bottom: 50px;
-            }
-            
-            .slide-content h2 {
-                font-size: 28px;
-            }
-            
-            .slide-content p {
-                font-size: 16px;
-            }
-        }
-        .back-to-home {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            border: 1px solid var(--primary);
-        }
-        
-        .back-to-home:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="Styles/EstilosPersonalRikdom.css">
 </head>
 <body>
     <!-- HEADER -->
-  <header>
-    <div class="container header-container">
-        <!-- Botón para volver al grupo empresarial -->
-        <a href="index.html" class="back-to-home">
-            <i class="fas fa-arrow-left"></i> Volver al Grupo
-        </a>
-        
-        <!-- Logo y nombre de la empresa -->
-        <div class="logo">
-            <div class="logo-img">
-                <img
-                    src="Images/Icono_SIC.jpeg"
-                    alt="Soluciones Integrales Consultores"
-                    style="width: 100%; height: 100%; object-fit: contain"
-                />
+    <header>
+        <div class="container header-container">
+            <!-- Botón para volver al grupo empresarial -->
+            <a href="index.html" class="back-to-home">
+                <i class="fas fa-arrow-left"></i> 
+            </a>
+            
+            <!-- Logo y nombre de la empresa -->
+            <div class="logo">
+                <div class="logo-img">
+                    <img
+                        src="Images/RIKDOM.png"
+                        alt="Personal Rikdom"
+                        style="width: 100%; height: 100%; object-fit: contain"
+                    />
+                </div>
+                <div class="logo-text">
+                    <h1>PERSONAL RIKDOM</h1>
+                    <p>Estrategias integrales para tu crecimiento</p>
+                </div>
             </div>
-            <div class="logo-text">
-                <h1>SOLUCIONES INTEGRALES CONSULTORES</h1>
-                <p>Estrategias integrales para tu crecimiento</p>
+            
+            <!-- Menú móvil -->
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
             </div>
+            
+            <!-- Navegación principal -->
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#" data-vertical="inmobiliario">Desarrollo Inmobiliario</a></li>
+                    <li><a href="#" data-vertical="comercial">Inteligencia Comercial</a></li>
+                    <li><a href="#" data-vertical="capacitacion">Capacitación</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <!-- Menú móvil -->
-        <div class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </div>
-        
-        <!-- Navegación principal -->
-        <nav id="mainNav">
-            <ul>
-                <li><a href="#" class="active">Procuración de Fondos</a></li>
-                <li><a href="#" data-vertical="inmobiliario">Desarrollo Inmobiliario</a></li>
-                <li><a href="#" data-vertical="comercial">Inteligencia Comercial</a></li>
-                <li><a href="#" data-vertical="capacitacion">Capacitación</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-        
-        <!-- Acciones del header -->
-        <div class="header-actions">
-            <select class="language-selector">
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-            </select>
-            <a href="#contacto" class="btn-primary">Cotizar Servicio</a>
-        </div>
-    </div>
-</header>
+    </header>
 
     <!-- BANNER SLIDER -->
     <div class="banner-slider">
@@ -917,7 +241,7 @@
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-file-contract"></i></div>
-                            <h3>CONTRATACIONES P Y P</h3>
+                            <h3>CONTRATACIONES PYP</h3>
                             <p>Gestión de contrataciones públicas y privadas</p>
                         </div>
                         <div class="card-body">
@@ -940,14 +264,14 @@
                     <div class="subsection-card">
                         <div class="card-header">
                             <div class="icon"><i class="fas fa-store"></i></div>
-                            <h3>PORTAL DE PROVEEDORES</h3>
+                            <h3>PORTAL MAESTRO DE PROVEEDORES</h3>
                             <p>Plataforma digital para gestión de proveedores</p>
                         </div>
                         <div class="card-body">
-                            <p>Sistema integral para registro, evaluación y gestión de proveedores corporativos para iniciar y ejecutar contrataciones públicas y privadas.</p>
+                            <p>Sistema integral para registro, evaluación y gestión de proveedores institucionales y corporativos, involucrados en las contrataciones públicas y privadas (PYP).</p>
                             <ul class="card-features">
                                 <li><i class="fas fa-check"></i> Registro en línea</li>
-                                <li><i class="fas fa-check"></i> Evaluación de riesgos</li>
+                                <li><i class="fas fa-check"></i> Gestión del riego</li>
                                 <li><i class="fas fa-check"></i> Dashboard analítico</li>
                                 <li><i class="fas fa-check"></i> Comunicación integrada</li>
                             </ul>
@@ -977,28 +301,6 @@
                             <div class="card-actions">
                                 <a href="#" class="btn-secondary">Ver Plataforma Demo</a>
                                 <a href="#" class="btn-primary">Convertirse en Afiliado</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- COMERCIALIZADORA -->
-                    <div class="subsection-card">
-                        <div class="card-header">
-                            <div class="icon"><i class="fas fa-truck"></i></div>
-                            <h3>COMERCIALIZADORA</h3>
-                            <p>Distribución y comercialización de productos</p>
-                        </div>
-                        <div class="card-body">
-                            <p>Red de distribución nacional para posicionar productos en el mercado mexicano.</p>
-                            <ul class="card-features">
-                                <li><i class="fas fa-check"></i> Logística integral</li>
-                                <li><i class="fas fa-check"></i> Cobertura nacional</li>
-                                <li><i class="fas fa-check"></i> Gestión de inventarios</li>
-                                <li><i class="fas fa-check"></i> Servicio postventa</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a href="#" class="btn-secondary">Ver Catálogo</a>
-                                <a href="#" class="btn-primary">Solicitar Cotización</a>
                             </div>
                         </div>
                     </div>
@@ -1064,8 +366,7 @@
                             <ul class="card-features">
                                 <li><i class="fas fa-check"></i> Diseño de proyectos MDL</li>
                                 <li><i class="fas fa-check"></i> Validación y verificación</li>
-                                <li><i class="fas fa-check"></i> Registro en mercados</li>
-                                <li><i class="fas fa-check"></i> Comercialización de créditos</li>
+                                <li><i class="fas fa-check"></i> Curso de créditos de carbono</li>
                             </ul>
                             <div class="card-actions">
                                 <a href="#" class="btn-secondary">Ver Proyectos</a>
@@ -1073,29 +374,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- CERTIFICACIÓN MICROSOFT -->
-                    <div class="subsection-card">
-                        <div class="card-header">
-                            <div class="icon"><i class="fab fa-microsoft"></i></div>
-                            <h3>CERTIFICACIÓN MICROSOFT</h3>
-                            <p>Certificaciones oficiales Microsoft</p>
-                        </div>
-                        <div class="card-body">
-                            <p>Centro autorizado para capacitación y certificación en tecnologías Microsoft.</p>
-                            <ul class="card-features">
-                                <li><i class="fas fa-check"></i> Azure</li>
-                                <li><i class="fas fa-check"></i> Microsoft 365</li>
-                                <li><i class="fas fa-check"></i> Power Platform</li>
-                                <li><i class="fas fa-check"></i> Security</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a href="#" class="btn-secondary">Ver Certificaciones</a>
-                                <a href="#" class="btn-primary">Inscribirse al Curso</a>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <!-- KÓRIMA ACTUALIZADO -->
                     <div class="subsection-card">
                         <div class="card-header">
@@ -1246,125 +524,6 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('mainNav').classList.toggle('active');
-        });
-        
-        // Slider functionality
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        
-        function showSlide(n) {
-            // Reset all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Set new slide
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        // Auto slide every 5 seconds
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-        
-        // Dot click events
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-            });
-        });
-        
-        // Vertical navigation
-        document.querySelectorAll('.vertical-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const target = this.getAttribute('data-target');
-                
-                // Update active button
-                document.querySelectorAll('.vertical-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // Update active content
-                document.querySelectorAll('.vertical-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(target).classList.add('active');
-                
-                // Update nav links
-                document.querySelectorAll('#mainNav a').forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('data-vertical') === target) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        });
-        
-        // Nav links for verticals
-        document.querySelectorAll('#mainNav a[data-vertical]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = this.getAttribute('data-vertical');
-                
-                // Update active button
-                document.querySelectorAll('.vertical-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.getAttribute('data-target') === target) {
-                        btn.classList.add('active');
-                    }
-                });
-                
-                // Update active content
-                document.querySelectorAll('.vertical-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(target).classList.add('active');
-                
-                // Update nav links
-                document.querySelectorAll('#mainNav a').forEach(navLink => {
-                    navLink.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // Close mobile menu if open
-                document.getElementById('mainNav').classList.remove('active');
-                
-                // Scroll to verticals section
-                document.getElementById('verticales').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-        
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-            this.reset();
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#') return;
-                
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="Scripts/JSPersonalRikdom.js"></script>
 </body>
 </html>
